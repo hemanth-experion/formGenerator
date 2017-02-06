@@ -1,0 +1,73 @@
+<div class="container">
+  <div *ngFor="let formElement of formArray">
+    <div *ngIf="formElement?.name==='text' ">
+      <div class="row space" >
+        <div class="col-md-3">
+          <label>{{formElement?.label}}:</label>
+        </div>
+        <div class="col-md-5">
+          <input type="{{formElement?.name}}"   [hidden]="formElement?.isVisible" [disabled]="formElement?.isReadOnly">
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+
+    <div *ngIf="formElement?.name==='number' ">
+      <div class="row space">
+        <div class="col-md-3">
+          <label>{{formElement?.label}}:</label>
+        </div>
+        <div class="col-md-5">
+          <input type="{{formElement?.name}}"  [hidden]="formElement?.isVisible" [disabled]="formElement?.isReadOnly">
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+
+    <div *ngIf="formElement?.name==='checkbox' ">
+      <div class="row space">
+        <div class="col-md-3">
+          <label>{{formElement?.label}}:</label>
+        </div>
+        <div class="col-md-5">
+          <input type="{{formElement?.name}}" [hidden]="formElement?.isVisible"  [disabled]="formElement?.isReadOnly">
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+
+
+
+    <div *ngIf="formElement?.name==='dropdown'">
+      <div class="row space">
+        <div class="col-md-3">
+          <label>{{formElement?.label}}:</label>
+        </div>
+        <div class="col-md-5 ">
+          <div class="dropdown" [hidden]="formElement?.isVisible">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+          <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+
+    <div *ngIf="formElement?.name==='textarea'">
+      <div class="row space">
+        <div class="col-md-3">
+          <label>{{formElement?.label}}:</label>
+        </div>
+        <div class="col-md-5">
+          <textarea  [hidden]="formElement?.isVisible"  rows="5" [disabled]="formElement?.isReadOnly"></textarea>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+</div>

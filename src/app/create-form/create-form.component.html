@@ -1,0 +1,42 @@
+<div class="container">
+    <h3>Create your form here!</h3>
+    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th>Type</th>
+            <th>Is Visible?</th>
+            <th>Is Read-only?</th>
+            <th>order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rowGroupIds" ngModelGroup="{{row}}">
+            <td><input type="text" class="text" ngModel name="controlLabel"></td>
+            <td>
+              <select ngModel name="controlName">
+                  <option value="text">Text</option>
+                  <option value="number">Number</option>
+                  <option value="dropdown">Dropdown</option>
+                  <option value="checkbox">Checkbox</option>
+                  <option value="textarea">Textarea</option>
+              </select>
+            </td>
+            <td><input type="checkbox" class="text" ngModel name="controlIsVisible" ></td>
+            <td><input type="checkbox" class="text" ngModel name="contolIsReadOnly"></td>
+            <td>
+              <select ngModel name="controlOrder" (change)="onChangeValidate($event.target.value)">
+                  <option *ngFor="let order of orderFieldValues" value={{order}}>{{order}}</option>
+              </select>
+            </td>
+          </tr>
+          <tr><td></td><td>
+            <td>  <input type="submit" class="btn btn-success"  value="submit" ></td>
+            <td></td><td></td>
+          </tr>
+        </tbody>
+      </table>
+
+ </form>
+</div>
